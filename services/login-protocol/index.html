@@ -1,0 +1,999 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://docs.iden3.io/services/login-protocol/" rel="canonical"/>
+<link href="../../favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.3.2" name="generator"/>
+<title>Login protocol - Iden3 Documentation</title>
+<link href="../../assets/stylesheets/main.24c991ad.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<meta content="#000000" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+</head>
+<body data-md-color-accent="" data-md-color-primary="black" data-md-color-scheme="" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#login-protocol">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Iden3 Documentation" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Iden3 Documentation">
+<img alt="logo" src="../../logo.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Iden3 Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Login protocol
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/iden3/docs/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../basics/introduction/">
+        The basics
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../protocol/spec/">
+        Iden3 protocol
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../protocol/zklogin/">
+        Services and protocols
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../protocol/circuits/">
+      Circuits
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../circom-snarkjs/">
+      Circom / snarkjs
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../publications/publications/">
+      Publications
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Iden3 Documentation" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Iden3 Documentation">
+<img alt="logo" src="../../logo.svg"/>
+</a>
+    Iden3 Documentation
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/iden3/docs/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          The basics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="The basics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          The basics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../basics/introduction/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../basics/key-concepts/">
+        Key concepts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../basics/getting-started/">
+        Getting started
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Iden3 protocol
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Iden3 protocol" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Iden3 protocol
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../protocol/spec/">
+        Iden3 protocol specs
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2">
+          Claim
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Claim" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          Claim
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../protocol/claims-structure/">
+        Structure
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../protocol/bjjkey/">
+        AuthBJJCredential
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Services and protocols
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Services and protocols" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Services and protocols
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../protocol/zklogin/">
+        Login protocol
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../protocol/querylanguage/">
+        Proof Query language
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../protocol/circuits/">
+        Circuits
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../circom-snarkjs/">
+        Circom / snarkjs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../publications/publications/">
+        Publications
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#login-protocol_1">
+    Login protocol
+  </a>
+<nav aria-label="Login protocol" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#assumptions">
+    Assumptions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-needed">
+    What is needed
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#protocol-flow">
+    Protocol flow
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#signature-protocol-v01-spec">
+    Signature Protocol v0.1 spec
+  </a>
+<nav aria-label="Signature Protocol v0.1 spec" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#auxiliary-data-structures">
+    Auxiliary data structures
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#identity-assertion-v01-spec">
+    Identity Assertion v0.1 spec
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#algorithms">
+    Algorithms
+  </a>
+<nav aria-label="Algorithms" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#signature-verification-algorithm">
+    Signature verification algorithm
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#iden-assert-verification-algorithm">
+    Iden Assert verification algorithm
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proofofclaim-verification">
+    ProofOfClaim verification
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#iden3js-protocols">
+    iden3js - protocols
+  </a>
+<nav aria-label="iden3js - protocols" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#login-identity-assertion">
+    Login (Identity Assertion)
+  </a>
+<nav aria-label="Login (Identity Assertion)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#define-new-noncedb">
+    Define new NonceDB
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generate-new-request-of-identity-assert">
+    Generate New Request of Identity Assert
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sign-packet">
+    Sign Packet
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#verify-signed-packet">
+    Verify Signed Packet
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rationale">
+    Rationale
+  </a>
+<nav aria-label="Rationale" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#signature-format">
+    Signature format
+  </a>
+<nav aria-label="Signature format" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#json-signing-formats">
+    JSON Signing formats
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#possible-attacks">
+    Possible attacks
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#references">
+    References
+  </a>
+<nav aria-label="References" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#webauth-api">
+    WebAuth API
+  </a>
+<nav aria-label="WebAuth API" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fido-security-guarantees-and-how-they-are-achieved">
+    FIDO Security guarantees and how they are achieved:
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fido-threat-analysis-and-mitigations">
+    FIDO Threat analysis and mitigations:
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#criticism">
+    Criticism:
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-code-of-server-verification">
+    Example code of server verification:
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#appendix">
+    Appendix
+  </a>
+<nav aria-label="Appendix" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-fido-protocols-security-goals">
+    The FIDO protocols security goals:
+  </a>
+<nav aria-label="The FIDO protocols security goals:" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-1">
+    [SG-1]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-2">
+    [SG-2]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-3">
+    [SG-3]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-4">
+    [SG-4]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-5">
+    [SG-5]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-6">
+    [SG-6]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-7">
+    [SG-7]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-8">
+    [SG-8]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-9">
+    [SG-9]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-10">
+    [SG-10]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-11">
+    [SG-11]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-12">
+    [SG-12]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-13">
+    [SG-13]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-14">
+    [SG-14]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-15">
+    [SG-15]
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sg-16">
+    [SG-16]
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/iden3/docs/edit/master/docs/services/login-protocol.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<h1 id="login-protocol">Login Protocol</h1>
+<h2 id="login-protocol_1">Login protocol</h2>
+<p>The login protocol is based on the signature protocol, in which a user
+signs a packet using an authorized kSign key.</p>
+<p>For the login case, the user desires to assert a particular identity (an
+ethereum address in this case) to a server so that they are allowed
+access into the service while being identified.</p>
+<p><img alt="image0" src="../images/login_overview.png"/></p>
+<h3 id="assumptions">Assumptions</h3>
+<ul>
+<li>Secure connection between Wallet and Server.</li>
+<li>Secure connection between Web Client and Server.</li>
+<li>Wallet authenticates the Server in the connection.</li>
+<li>Web Client authenticates the Server in the connection.</li>
+</ul>
+<h3 id="what-is-needed">What is needed</h3>
+<ul>
+<li>Server authenticates the Ethereum Address and Ethereum Name from the
+    Wallet.</li>
+<li>The user transfers the authentication from the Wallet to the Web
+    Client.</li>
+</ul>
+<h3 id="protocol-flow">Protocol flow</h3>
+<p><img alt="image1" src="../images/login_flow.png"/></p>
+<p>Challenges contain a cryptographic nonce and have a timeout that
+indicates the validity of the nonce in the challenge. A signed challenge
+with a timed out nonce must be rejected by the server. The server must
+store a list of not timed out nonces that haven’t been signed yet to
+guarantee freshness.</p>
+<p>A cryptographic nonce must be securely generated and long enough to
+avoid colisions (we use 256 bits).</p>
+<h3 id="signature-protocol-v01-spec">Signature Protocol v0.1 spec</h3>
+<p>A signature may be requested as follows:</p>
+<pre><code>{
+  header: {
+    typ: iden3.sig.v0_1
+  }
+  body: {
+    type: TYPE
+    data: DATA
+  }
+}
+</code></pre>
+<p>The user will generate a packet following the signature protocol
+specification, that may contain data from a signature request, or may be
+made from scratch. The packet contains a header and a payload, and is
+serialized and signed following the <a href="https://tools.ietf.org/html/rfc7515">JWS
+standard</a>. Usually the <code>form</code> will
+be filled by the user, and <code>data</code> will be copied from a request.</p>
+<p>The structure of the <code>data</code> and <code>form</code> in the payload are specified by
+the <code>type</code> (what is being signed) in the payload. The rest of the
+elements are specified by the <code>typ</code> (signature packet) in the header.</p>
+<pre><code>JWS_PAYLOAD = {
+  type: TYPE
+  data: DATA
+  form: FORM
+  ksign: str # ksing public key in compressed form
+  proofKSing: proofClaim # Proof of authorize k sign claim (which contains the public key in compressed form)
+}
+
+JWS_HEADER = {
+  typ: iden3.sig.v0_1
+  iss: str # Ethereum Address
+  iat: uint # issued at time, unix timestamp
+  exp: uint # expiration time, unix timestamp
+  alg: ? # algorithm
+}
+
+JWS_SIGN(JWS_HEADER, JWS_PAYLOAD)
+</code></pre>
+<p>Each Signature request <code>type</code> has a view representation for the user,
+where the <code>data</code> and <code>form</code> are presented. Some of the values may be
+hidden from the user when necessary, but only if doing so doesn’t
+compromise the security of the user. In the request view, the user has
+the ability to pick some elements of the <code>form</code>.</p>
+<p><code>ksign</code> is the compressed public key of a secp256k ECDSA key pair. The
+<code>proofKSing</code> contains a KSign Authorize Claim for a secp256k public key.</p>
+<p>As <code>JWS_HEADER.alg</code> we will use a custom algorithm (not defined in the
+JWS standard): “EK256K1”, which is ECDSA with secp256k1 curve and keccak
+as hash function, the same signature algorithm configuration used in
+Ethereum.</p>
+<h4 id="auxiliary-data-structures">Auxiliary data structures</h4>
+<pre><code>proofClaim: {
+    signature: signature # Relay root + date signed by relay
+    date: uint
+    leaf: claim
+    proofs: proofClaimPartial[]
+}
+
+proofClaimPartial: {
+    mtp0: mtp # merkle tree proof of leaf existence
+    mtp1: mtp # merkle tree proof of leaf non-existence
+    root: key # merkle tree root
+    aux: nil | { ver: uint, era: uint, idAddr: str } # Necessary data to construct SetRootClaim from root
+}
+</code></pre>
+<p>Usually the relay returns the <code>proofClaim</code> data structure to prove that
+a claim is valid and is in the merkle tree.</p>
+<h3 id="identity-assertion-v01-spec">Identity Assertion v0.1 spec</h3>
+<p>payload:</p>
+<pre><code>type: iden3.iden_assert.v0_1
+data: {
+  challenge: nonce # 256 bits in base64
+  timeout: uint # seconds
+  origin: str # domain
+}
+form: {
+  ethName: str # ethereumName
+  proofAssignName: proofClaim # proof of claim Assign Name for ethName
+}
+</code></pre>
+<p>A session id, if necessary, can be computed from the challenge. This
+session id can be used to link the communication between the web service
+and the wallet service.</p>
+<p>view:</p>
+<pre><code>type: Identity Assertion
+data: {
+  origin: str # domain
+}
+form: {
+  ethName: str # ethereum name
+}
+</code></pre>
+<h3 id="algorithms">Algorithms</h3>
+<p>Here we show an overview of the algorithms steps used for verification
+of the proofs and signatures used in the login protocol. The following
+algorithms consider the case in which there is a only a single trusted
+entity (identified by <code>relayPk</code>) that acts as a relay and as a domain
+name server.</p>
+<h4 id="signature-verification-algorithm">Signature verification algorithm</h4>
+<pre><code>VerifySignedPacket(jwsHeader, jwsPayload, signature, relayPk):
+1. Verify jwsHeader.typ is 'iden3.sig.v0_1'
+2. Verify jwsHeader.alg is 'EK256K1'
+3. Verify that jwsHeader.iat &lt;= now() &lt; jwsHeader.exp 
+4. Verify that jwsPayload.ksign is in jwsPayload.proofKSign.leaf
+5. Verify that jwsHeader.iss is in jwsPayload.proofKSign
+6. Verify that signature of JWS(jwsHeader, jwsPayload) by jwsPayload.ksign is signature
+7. VerifyProofOfClaim(jwsPayload.proofKSign, relayPk)
+</code></pre>
+<p>In 4. we verify that the ksign used to sign the packet is authorized by
+the user, identified by jwsHeader.iss ethereum address.</p>
+<h4 id="iden-assert-verification-algorithm">Iden Assert verification algorithm</h4>
+<pre><code>VerifyIdenAssertV01(nonceDB, origin, jwsHeader, jwsPayload, signature, relayPk):
+1. Verify jwsPayload.type is 'iden3.iden_assert.v0_1'
+2. Verify jwsPayload.data.origin is origin
+3. Verify jwsPayload.data.challenge is in nonceDB and hasn't expired, delete it
+4. Verify that jwsHeader.iss and jwsPayload.form.ethName are in jwsPayload.proofAssignName.leaf
+5. VerifyProofOfClaim(jwsPayload.form.ethName, relayPk)
+</code></pre>
+<h4 id="proofofclaim-verification">ProofOfClaim verification</h4>
+<pre><code>VerifyProofOfClaim(p, relayPk):
+1. Verify signature of p.proofs[-1].root by relayPk is p.signature
+   let leaf = p.leaf
+2. loop for each proof in p.proofs:
+    2.1 Verify proof.mtp0 is existence proof
+    2.2 Verify proof.mtp0 with leaf and proof.root
+    2.3 Verify proof.mtp1 is non-existence proof
+    2.4 Verify proof.mtp1 with ClaimIncrementVersion(leaf) and proof.root
+        leaf = NewClaimSetRootClaim(p.root, p.aux.ver, p.aux.era, p.aux.ethAddr)
+</code></pre>
+<!-- ### Rationale
+
+See [this document](login_spec_rationale.md) for the rationale of some
+decisions made in the design of this protocol. -->
+<h2 id="iden3js-protocols">iden3js - protocols</h2>
+<h3 id="login-identity-assertion">Login (Identity Assertion)</h3>
+<pre><code>Wallet                                   Service
+  +                                         +
+  |           signatureRequest              |
+  | &lt;-------------------------------------+ |
+  |                                         |
+  | +---+                                   |
+  |     |                                   |
+  |     |sign packet                        |
+  |     |                                   |
+  | &lt;---+                                   |
+  |              signedPacket               |
+  | +-------------------------------------&gt; |
+  |                                         |
+  |                                  +---+  |
+  |                      verify      |      |
+  |                      signedPacket|      |
+  |                                  |      |
+  |                                  +---&gt;  |
+  |                                         |
+  |                 ok                      |
+  | &lt;-------------------------------------+ |
+  |                                         |
+  |                                         |
+  |                                         |
+  +                                         +
+</code></pre>
+<p>Read the login protocol specification <a href="login_spec.md">here</a>.</p>
+<h4 id="define-new-noncedb">Define new NonceDB</h4>
+<pre class="js"><code class="language-sourceCode">const nonceDB = new iden3.protocols.NonceDB();
+</code></pre>
+<h4 id="generate-new-request-of-identity-assert">Generate New Request of Identity Assert</h4>
+<ul>
+<li>input<ul>
+<li><code>nonceDB</code>: NonceDB class object</li>
+<li><code>origin</code>: domain of the emitter of the request</li>
+<li><code>timeout</code>: unixtime format, valid until that date. We can use
+    for example 2 minutes (<code>2*60</code> seconds)</li>
+</ul>
+</li>
+<li>
+<p>output</p>
+<ul>
+<li><code>signatureRequest</code>: <code>Object</code></li>
+</ul>
+<p><code>{.sourceCode .js}
+const signatureRequest = iden3.protocols.login.newRequestIdenAssert(nonceDB, origin, 2*60);</code></p>
+</li>
+</ul>
+<p>The <code>nonce</code> of the <code>signatureRequest</code> can be getted from:</p>
+<pre class="js"><code class="language-sourceCode">const nonce = signatureRequest.body.data.challenge;
+// nonce is the string containing the nonce value
+</code></pre>
+<p>We can add auxiliar data to the <code>nonce</code> in the <code>nonceDB</code> only one time:</p>
+<pre class="js"><code class="language-sourceCode">const added = nodeDB.addAuxToNonce(nonce, auxdata);
+// added is a bool confirming if the aux data had been added
+</code></pre>
+<h4 id="sign-packet">Sign Packet</h4>
+<ul>
+<li>input<ul>
+<li><code>signatureRequest</code>: object generated in the
+    <code>newRequestIdenAssert</code> function</li>
+<li><code>userAddr</code>: Eth Address of the user that signs the data packet</li>
+<li><code>ethName</code>: name assigned to the <code>userAddr</code></li>
+<li><code>proofOfEthName</code>: <code>proofOfClaim</code> of the <code>ethName</code></li>
+<li><code>kc</code>: iden3.KeyContainer object</li>
+<li><code>ksign</code>: KOperational authorized for the <code>userAddr</code></li>
+<li><code>proofOfKSign</code>: <code>proofOfClaim</code> of the <code>ksign</code></li>
+<li><code>expirationTime</code>: unixtime format, signature will be valid until
+    that date</li>
+</ul>
+</li>
+<li>
+<p>output</p>
+<ul>
+<li><code>signedPacket</code>: <code>String</code></li>
+</ul>
+<p><code>{.sourceCode .js}
+const expirationTime = unixtime + (3600 * 60);
+const signedPacket = iden3.protocols.login.signIdenAssertV01(signatureRequest, usrAddr, ethName, proofOfEthName, kc, ksign, proofOfKSign, expirationTime);</code></p>
+</li>
+</ul>
+<h4 id="verify-signed-packet">Verify Signed Packet</h4>
+<ul>
+<li>input<ul>
+<li><code>nonceDB</code>: NonceDB class object</li>
+<li><code>origin</code>: domain of the emitter of the request</li>
+<li><code>signedPacket</code>: object generated in the <code>signIdenAssertV01</code>
+    function</li>
+</ul>
+</li>
+<li>
+<p>output</p>
+<ul>
+<li><code>nonce</code>: nonce object of the signedPacket, that has been just
+    deleted from the nonceDB when the signedPacket is verified. If
+    the verification fails, the nonce will be <code>undefined</code></li>
+</ul>
+<p><code>{.sourceCode .js}
+const verified = iden3.protocols.login.verifySignedPacket(nonceDB, origin, signedPacket);</code></p>
+</li>
+</ul>
+<!-- #### Appendix
+
+See the [login specification document](login_spec.md) for information
+about the protocol design. -->
+<h2 id="rationale">Rationale</h2>
+<p>The following document contains references to similar protocols on which
+our login protocol relies on or takes inspiration from.</p>
+<h3 id="signature-format">Signature format</h3>
+<p>Use JSON to encode the object that will be signed.</p>
+<h4 id="json-signing-formats">JSON Signing formats</h4>
+<p><a href="https://medium.facilelogin.com/json-message-signing-alternatives-897f90d411c">https://medium.facilelogin.com/json-message-signing-alternatives-897f90d411c</a></p>
+<ul>
+<li>JSON Web Signature (JWS)<ul>
+<li>Doesn’t need canonicalization</li>
+<li>Allows signing arbitrary data (not only JSON)</li>
+<li>Widely used</li>
+</ul>
+</li>
+<li>JSON Cleartext Signature (JCS)</li>
+<li>Concise Binary Object Representation (CBOR) Object Signing</li>
+</ul>
+<p><a href="https://matrix.org/docs/spec/appendices.html#signing-json">https://matrix.org/docs/spec/appendices.html#signing-json</a></p>
+<ul>
+<li>Matrix JSON Signing<ul>
+<li>Allows having multiple signatures with different protocols for a
+    single JSON</li>
+</ul>
+</li>
+</ul>
+<h3 id="possible-attacks">Possible attacks</h3>
+<p>See WebAuth API, FIDO Threat analysis</p>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/OpenID">https://en.wikipedia.org/wiki/OpenID</a></li>
+<li><a href="https://en.wikipedia.org/wiki/OpenID_Connect">https://en.wikipedia.org/wiki/OpenID_Connect</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IndieAuth">https://en.wikipedia.org/wiki/IndieAuth</a></li>
+<li><a href="https://fidoalliance.org/how-fido-works/">https://fidoalliance.org/how-fido-works/</a></li>
+</ul>
+<h4 id="webauth-api">WebAuth API</h4>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API">https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API</a></li>
+<li><a href="https://w3c.github.io/webauthn/">https://w3c.github.io/webauthn/</a></li>
+<li><a href="https://www.w3.org/TR/webauthn/">https://www.w3.org/TR/webauthn/</a></li>
+</ul>
+<p>Demo: <a href="https://www.webauthn.io/">https://www.webauthn.io/</a></p>
+<h5 id="fido-security-guarantees-and-how-they-are-achieved">FIDO Security guarantees and how they are achieved:</h5>
+<ul>
+<li><a href="https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-security-ref-v2.0-id-20180227.html#relation-between-measures-and-goals">https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-security-ref-v2.0-id-20180227.html#relation-between-measures-and-goals</a></li>
+</ul>
+<h5 id="fido-threat-analysis-and-mitigations">FIDO Threat analysis and mitigations:</h5>
+<ul>
+<li><a href="https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-security-ref-v2.0-id-20180227.html#threat-analysis">https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-security-ref-v2.0-id-20180227.html#threat-analysis</a>
+Currently (2018-01-08) there’s no support for iOS (Safari):</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API#Browser_compatibility">https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API#Browser_compatibility</a></li>
+</ul>
+<h5 id="criticism">Criticism:</h5>
+<ul>
+<li><a href="https://www.scip.ch/en/?labs.20180424">https://www.scip.ch/en/?labs.20180424</a></li>
+</ul>
+<h5 id="example-code-of-server-verification">Example code of server verification:</h5>
+<ul>
+<li><a href="https://github.com/duo-labs/webauthn/blob/fa6cd954884baf24fc5a51656ce21c1a1ef574bc/main.go#L336">https://github.com/duo-labs/webauthn/blob/fa6cd954884baf24fc5a51656ce21c1a1ef574bc/main.go#L336</a></li>
+<li><a href="https://w3c.github.io/webauthn/#verifying-assertion">https://w3c.github.io/webauthn/#verifying-assertion</a></li>
+</ul>
+<h3 id="appendix">Appendix</h3>
+<h4 id="the-fido-protocols-security-goals">The FIDO protocols security goals:</h4>
+<h5 id="sg-1">[SG-1]</h5>
+<p>Strong User Authentication: Authenticate (i.e. recognize) a user and/or
+a device to a relying party with high (cryptographic) strength. </p>
+<h5 id="sg-2">[SG-2]</h5>
+<p>Credential Guessing Resilience: Provide robust protection against eavesdroppers, e.g. be resilient to physical observation, resilient to
+targeted impersonation, resilient to throttled and unthrottled guessing.</p>
+<h5 id="sg-3">[SG-3]</h5>
+<p>Credential Disclosure Resilience: Be resilient to phishing attacks and real-time phishing attack, including resilience to
+online attacks by adversaries able to actively manipulate network
+traffic. </p>
+<h5 id="sg-4">[SG-4]</h5>
+<p>Unlinkablity: Protect the protocol conversation such that any two relying parties cannot link the conversation to one
+user (i.e. be unlinkable). </p>
+<h5 id="sg-5">[SG-5]</h5>
+<p>Verifier Leak Resilience: Be resilient to leaks from other relying parties. I.e., nothing that a
+verifier could possibly leak can help an attacker impersonate the user
+to another relying party. </p>
+<h5 id="sg-6">[SG-6]</h5>
+<p>Authenticator Leak Resilience: Be resilient to leaks from other FIDO Authenticators. I.e., nothing that
+a particular FIDO Authenticator could possibly leak can help an attacker
+to impersonate any other user to any relying party. </p>
+<h5 id="sg-7">[SG-7]</h5>
+<p>User Consent: Notify the user before a relationship to a new relying party is
+being established (requiring explicit consent). </p>
+<h5 id="sg-8">[SG-8]</h5>
+<p>Limited PII: Limit the amount of personal identifiable information (PII) exposed
+to the relying party to the absolute minimum. </p>
+<h5 id="sg-9">[SG-9]</h5>
+<p>Attestable Properties: Relying Party must be able to verify FIDO Authenticator
+model/type (in order to calculate the associated risk). </p>
+<h5 id="sg-10">[SG-10]</h5>
+<p>DoS Resistance: Be resilient to Denial of Service Attacks. I.e. prevent
+attackers from inserting invalid registration information for a
+legitimate user for the next login phase. Afterward, the legitimate user
+will not be able to login successfully anymore. </p>
+<h5 id="sg-11">[SG-11]</h5>
+<p>Forgery Resistance: Be resilient to Forgery Attacks (Impersonation Attacks).
+I.e. prevent attackers from attempting to modify intercepted
+communications in order to masquerade as the legitimate user and login
+to the system. </p>
+<h5 id="sg-12">[SG-12]</h5>
+<p>Parallel Session Resistance: Be resilient to Parallel Session Attacks. Without knowing a user’s
+authentication credential, an attacker can masquerade as the legitimate
+user by creating a valid authentication message out of some eavesdropped
+communication between the user and the server. </p>
+<h5 id="sg-13">[SG-13]</h5>
+<p>Forwarding Resistance: Be resilient to Forwarding and Replay Attacks.
+Having intercepted previous communications, an attacker can impersonate
+the legal user to authenticate to the system. The attacker can replay or
+forward the intercepted messages. </p>
+<h5 id="sg-14">[SG-14]</h5>
+<p>(not covered by U2F) Transaction Non-Repudiation: Provide strong cryptographic
+non-repudiation for secure transactions. </p>
+<h5 id="sg-15">[SG-15]</h5>
+<p>Respect for Operating Environment Security Boundaries: Ensure that registrations and
+private key material as a shared system resource is appropriately
+protected according to the operating environment privilege boundaries in
+place on the FIDO user device. </p>
+<h5 id="sg-16">[SG-16]</h5>
+<p>Assessable Level of Security: Ensure that the design and implementation of the Authenticator
+allows for the testing laboratory / FIDO Alliance to assess the level of
+security provided by the Authenticator.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+            Material for MkDocs
+          </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="https://t.me/iden3io" rel="noopener" target="_blank" title="t.me">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/iden3/docs" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://iden3.io/" rel="noopener" target="_blank" title="iden3.io">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 3.75C0 2.784.784 2 1.75 2h20.5c.966 0 1.75.784 1.75 1.75v16.5A1.75 1.75 0 0 1 22.25 22H1.75A1.75 1.75 0 0 1 0 20.25V3.75zm1.75-.25a.25.25 0 0 0-.25.25V5.5h4v-2H1.75zM7 3.5v2h4v-2H7zm5.5 0v2h10V3.75a.25.25 0 0 0-.25-.25H12.5zm10 3.5h-21v13.25c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V7z" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.bc35569b.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
