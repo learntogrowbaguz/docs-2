@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#claims-data-structure">
+<a class="md-skip" href="#claim-data-structure">
           Skip to content
         </a>
 </div>
@@ -230,14 +230,23 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#common-structure">
-    Common structure
+    Common Structure
   </a>
-<nav aria-label="Common structure" class="md-nav">
+<nav aria-label="Common Structure" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#claim-schema">
+    Claim Schema
+  </a>
+<nav aria-label="Claim Schema" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#index-vs-value">
-    Index VS Value
+    Index vs Value
   </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -312,14 +321,23 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#common-structure">
-    Common structure
+    Common Structure
   </a>
-<nav aria-label="Common structure" class="md-nav">
+<nav aria-label="Common Structure" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#claim-schema">
+    Claim Schema
+  </a>
+<nav aria-label="Claim Schema" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#index-vs-value">
-    Index VS Value
+    Index vs Value
   </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -334,7 +352,7 @@
 <a class="md-content__button md-icon" href="https://github.com/iden3/docs/edit/master/docs/protocol/claims-structure.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="claims-data-structure">Claims data structure</h1>
+<h1 id="claim-data-structure">Claim Data Structure</h1>
 <div class="mermaid">graph TD
 Hi--&gt;i0
 Hi--&gt;i1
@@ -349,14 +367,13 @@ Hv--&gt;v3
 Ht--&gt;Hi
 Ht--&gt;Hv
 </div>
-<h2 id="common-structure">Common structure</h2>
-<p>The claim always contains a subject:
-- <strong>Self</strong>: the claim says something about themself.  The subject is implicit, and it's the claiming identity.
-- <strong>OtherIden</strong>: the claim says something about another identity by its ID.
-- <strong>Object</strong>: the claim says something about an object by its ID.</p>
-<p>If the subject is <em>Self</em> -  <em>identity</em> sections  i_1, v_1 can be empty. </p>
-<p>if the subject is NOT <em>Self</em>, the id(OtherIden) of the Identity/Object can be in the Index(i_1)
-or the Value(v_1) part of the Claim.  This is encoded in a header bit.</p>
+<h2 id="common-structure">Common Structure</h2>
+<p>A claim always contains a subject, that can be:
+- <strong>Self</strong>: The claim says something about itself.  The subject is implicit, and it's the identity that makes claim.
+- <strong>OtherIden</strong>: The claim says something about some other identity (identifies by other's ID).
+- <strong>Object</strong>: The claim says something about an object (identifies by the object's ID).</p>
+<p>If the subject is <em>Self</em> -  <em>identity</em>, sections  i_1, v_1 can be empty. </p>
+<p>if the subject is NOT <em>Self</em>, the id(OtherIden) of the Identity/Object can be in the Index(i_1) or the Value(v_1) part of the claim.  This is encoded in a header bit.</p>
 <pre><code class="language-go">h_i = H(i_0, i_1, i_2, i_3)
 h_v = H(v_0, v_1, v_2, v_3)
 h_t = H(h_i, h_v)
@@ -389,12 +406,13 @@ Value:
  v_2: [ 253 bits] 0
  v_3: [ 253 bits] 0
 </code></pre>
-<p><strong>Claim shema</strong> - schemas define the kind of data inside a claim <a href="../spec#claims">link</a></p>
-<p><em>Idex slots</em> <strong>i_2</strong>, <strong>i_3</strong> and <em>value slots</em> <strong>v_2</strong>, <strong>v_3</strong> are data slots for user data</p>
-<h4 id="index-vs-value">Index VS Value</h4>
-<p>When to use index slots and when value?</p>
-<p>Claims are stored in the Merkle tree and the hash of index slots ( hash(i_0,i_1,i_2,i_3) ) is unique for the whole tree. It means that you can not have two claims with the same index inside the tree. </p>
-<p>As opposite to index, values slots could be the same for different claims if their index is different. </p>
+<h3 id="claim-schema">Claim Schema</h3>
+<p>Schemas define the type of data inside a claim <a href="https://github.com/iden3/docs/blob/master/mkdocs/docs/protocol/spec.md#claims">link</a>.</p>
+<p><em>Index slots</em> <strong>i_2</strong>, <strong>i_3</strong> and <em>value slots</em> <strong>v_2</strong>, <strong>v_3</strong> are the data slots for user data.</p>
+<h4 id="index-vs-value">Index vs Value</h4>
+<p><strong>When to Use Index Slots and Value Slots?</strong></p>
+<p>Claims are stored in the Merkle tree and the hash of the index slots ( hash(i_0,i_1,i_2,i_3) ) is unique for the whole tree. It means that you cannot have two claims with the same index inside the tree. </p>
+<p>As opposite to the index, the values slots could be the same for different claims if their indexes are different. </p>
 </article>
 </div>
 </div>

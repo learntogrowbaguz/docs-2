@@ -289,15 +289,13 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="authbjjcredential">AuthBJJCredential</h1>
-<p>AuthBJJCredential is primary credential for each identity. It represents authorization operational key.
+<p>AuthBJJCredential is a primary credential for each identity. It represents an authorization operational key.
 Hex of the current auth claim schema is <em>ca938857241db9451ea329256b9c06e5</em>.
-This claim must be presented in the most circuits for identity verification.</p>
-<p>BabyJubjub key is using a specific elliptic curve defined over the large prime subgroup of BN128
-elliptic curve. More about bjj key you can find <a href="https://iden3-docs.readthedocs.io/en/latest/_downloads/33717d75ab84e11313cc0d8a090b636f/Baby-Jubjub.pdf">here</a>.</p>
-<p>X and Y values of bjj public key are part of Index data slots [I_3] and [I_4].</p>
-<p>Below you can find an example of claim entry:</p>
-<pre><code>
-Index:
+This claim must be presented in most circuits for identity verification.</p>
+<p>A Baby Jubjub key uses a specific elliptic curve defined over the large prime subgroup of the BN128 elliptic curve. To know more about the bjj key, you can <a href="https://iden3-docs.readthedocs.io/en/latest/_downloads/33717d75ab84e11313cc0d8a090b636f/Baby-Jubjub.pdf">visit this page</a>.</p>
+<p>X and Y values of the bjj public key are part of the Index data slots [I_3] and [I_4].</p>
+<p>You can find below an example of a claim entry:</p>
+<pre><code>Index:
  i_0: [ 128 bits] 269270088098491255471307608775043319525 // auth schema (big integer from ca938857241db9451ea329256b9c06e5)
       [ 32 bits ] 00010000000000000000 // header flags: first 000 - self claim 1 - expiration is set. 
       [ 32 bits ] 0

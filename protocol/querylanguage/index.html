@@ -262,8 +262,8 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#the-goal-of-the-query-language">
-    The goal of the query language
+<a class="md-nav__link" href="#goal-of-the-query-language">
+    Goal of the Query Language
   </a>
 </li>
 <li class="md-nav__item">
@@ -273,17 +273,17 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#atomic-circuit">
-    Atomic circuit
+    Atomic Circuit
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#proof-request-workflow">
-    Proof request workflow
+    Proof Request Workflow
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#next-steps">
-    Next steps
+    Next Steps
   </a>
 </li>
 </ul>
@@ -322,8 +322,8 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#the-goal-of-the-query-language">
-    The goal of the query language
+<a class="md-nav__link" href="#goal-of-the-query-language">
+    Goal of the Query Language
   </a>
 </li>
 <li class="md-nav__item">
@@ -333,17 +333,17 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#atomic-circuit">
-    Atomic circuit
+    Atomic Circuit
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#proof-request-workflow">
-    Proof request workflow
+    Proof Request Workflow
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#next-steps">
-    Next steps
+    Next Steps
   </a>
 </li>
 </ul>
@@ -356,54 +356,46 @@
 <a class="md-content__button md-icon" href="https://github.com/iden3/docs/edit/master/docs/protocol/querylanguage.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="proof-query-language">Proof Query language</h1>
+<h1 id="proof-query-language">Proof Query Language</h1>
 <blockquote>
-<p>Proof Query language specifications is still being built. Consider it work in progress.</p>
+<p>The specifications for the Proof Query Language are under development; consider it as a work-in-progress.</p>
 </blockquote>
-<h2 id="the-goal-of-the-query-language">The goal of the query language</h2>
-<p>Initial idea is to have a generic circuit with the possibility to do a verification based on user claims.
-As circuit setup is not a trivial task and especially the trusted setup is a challenging task to do for regular developers. We have to provide a simple generic query language based on generic prebuilt circuits.</p>
-<p>But query language should not be limited only in use by specific atomic circuits, but also utilized in other circuits.</p>
+<h2 id="goal-of-the-query-language">Goal of the Query Language</h2>
+<p>The initial idea is to have a generic circuit with the possibility to do a verification based on user-claims. As circuit setup is not a trivial task and especially, the trusted setup is a challenging thing for regular developers, we have to provide a simple generic query language based on the generic prebuilt circuits.</p>
+<p>The use of the Query Language should not be limited to specific atomic circuits; it must be extendable to other circuits too.</p>
 <h2 id="syntax">Syntax</h2>
-<p>The first version planned to support only next operations : <em>&gt;, &lt;,  =, in and notin</em>  . Later on, this list could be extended</p>
-<p><strong><em>Comparison operations</em></strong></p>
+<p>The first version is set to support only these operations: <em>&gt;, &lt;,  =, in and notin</em>. Later on, this list could be extended.</p>
+<p><strong><em>Comparison Operations</em></strong></p>
 <ul>
 <li>&gt; greater than</li>
-<li>&lt;   less than</li>
-<li>=   equal to</li>
+<li>&lt;  less than</li>
+<li>=  equal to</li>
 <li>notin - matches none of the values</li>
 <li>in - matches one of the values</li>
 </ul>
 <blockquote>
-<p><em>we have to use some syntax instead of raw signs as it will be inconvenient to use  signs &lt;&gt; =  in JS.   $eq as = , $gt as &gt;,... more preferable way</em>
+<p><em>We have to use some syntax instead of raw signs as it will be inconvenient to use signs such as &lt;, &gt;, and = in JS. For example, $eq can be used instead of = , $gt can be used instead of &gt;,and so on.</em>
 </p>
 </blockquote>
-<p>Simple operation</p>
+<p><strong><em>Simple Operations</em></strong></p>
 <pre><code class="language-json">{ &lt;field&gt;: { $eq: &lt;value&gt; } } - equal 
-{ &lt;field&gt;: { $gt: &lt;value&gt; } } - greater then
-{ &lt;field&gt;: { $lt: &lt;value&gt; } } - less then
+{ &lt;field&gt;: { $gt: &lt;value&gt; } } - greater than
+{ &lt;field&gt;: { $lt: &lt;value&gt; } } - less than
 { &lt;field&gt;: { $nin: [&lt;value&gt;,&lt;value&gt;] } }
 { &lt;field&gt;: { $in: [&lt;value&gt;,&lt;value&gt;] } }
 </code></pre>
-<p>For atomic claim these operations could cover a lot of use-cases.</p>
-<h2 id="atomic-circuit">Atomic circuit</h2>
+<p>For atomic claims, these operations could cover a lot of use-cases.</p>
+<h2 id="atomic-circuit">Atomic Circuit</h2>
 <blockquote>
-<p>The first implementation will cover only simple atomic verification of one field.
-It means we will do query requests only to one data field
-But also we have to do all required service verifications like check ownership, revocation, expiration, etc...
-</p>
+<p>The first implementation will cover only simple atomic verification of one field. It means that we will do query requests only to one data field. But we have to do all the required service verifications too such as check ownership, revocation, expiration, etc.
+We also need to include some additional attributes specific to the identity:</p>
 </blockquote>
-<p>We also have to include some additional attributes specific to the identity</p>
 <ul>
-<li>Schemas list</li>
-<li>List of trusted issuers</li>
-<li>
-<p>Challenge</p>
-</li>
-<li>
-<p><em>Example: a simple query</em></p>
-</li>
+<li>Schemas List</li>
+<li>List of Trusted Issuers</li>
+<li>Challenge</li>
 </ul>
+<p><em>Example: A simple query</em></p>
 <pre><code class="language-json">{
   "circuit_id": "attrQuery",
   "type": "zkp",
@@ -430,15 +422,13 @@ But also we have to do all required service verifications like check ownership, 
   }
 }
 </code></pre>
+<p>where:
+  <em>allowedIssuers</em>: A list of issuers whom the verifier trusts.
+  <em>schema</em>: A list of schemas that claims can use for proof generation.
+  <em>challenge</em>: Used to verify that the provided proof belongs to the existing user session.
+  <em>req</em>: A query request to the circuit.</p>
 <blockquote>
-<p>💡
-  <em>allowedIssuers —</em> is a list of issuers to whom verifier trust
-  <em>schema —</em> a list  of schemas that claims can be used for proof generation
-  <em>challenge —</em> used to verify that provided proof belongs to existing user session
-  <em>req —</em> query request to circuit</p>
-<ul>
-<li><em>Example: multiple requests in one query</em> (WIP)</li>
-</ul>
+<p><em>Example: Multiple requests in one query</em> (WIP)</p>
 </blockquote>
 <pre><code class="language-json">{
   "circuit_id": "atomicQueryMTP",
@@ -486,29 +476,28 @@ But also we have to do all required service verifications like check ownership, 
   }
 }
 </code></pre>
-<p>Query circuit should accept query requests and also have to do mandatory verification.</p>
-<p>Mandatory verification includes:</p>
+<p>A query circuit should accept query requests and perform the following mandatory verifications.</p>
+<p><strong>Mandatory Verifications</strong> </p>
 <ul>
-<li>Verify claim id ownership ( proof is generated by identity which is the subject of claim)</li>
-<li>Verify that claim is not revoked</li>
-<li>Verify that claim is not expired</li>
-<li>Verify that the identity key is not revoked</li>
+<li>Verifying the claim Id ownership (proof is generated by identity, which is the subject of the claim).</li>
+<li>Verifying that the claim is not revoked.</li>
+<li>Verifying that the claim is not expired.</li>
+<li>Verifying that the identity key is not revoked.</li>
 </ul>
-<p>Query:</p>
+<p><strong>Query</strong></p>
 <ul>
 <li>Apply query request</li>
 </ul>
-<p>Optional:</p>
+<p><strong>Optional</strong></p>
 <ul>
-<li>Check schema</li>
-<li>Check issuer of the claim</li>
+<li>Check schema.</li>
+<li>Check the issuer of the claim.</li>
 </ul>
 <blockquote>
-<p>In some cases, <em>schema</em> and <em>issuer</em> could be not important. And in this case, we should leave the possibility to omit these fields
-</p>
+<p>In some cases, <em>schema</em> and <em>issuer</em> are not important and therefore, we can have the possibility to omit these fields.</p>
 </blockquote>
-<p><strong>List of signals for circuit</strong></p>
-<p>Id ownership signal:</p>
+<p><strong>List of Signals for Circuit</strong></p>
+<p><strong><em>Id Ownership Signals</em></strong>:</p>
 <pre><code>signal input id;
 signal input hoIdenState;
 
@@ -529,7 +518,7 @@ signal input challengeSignatureR8x;
 signal input challengeSignatureR8y;
 signal input challengeSignatureS;
 </code></pre>
-<p>Claim signals:</p>
+<p><strong><em>Claim Signals</em></strong>:</p>
 <pre><code>signal input claimSchema;
 signal input claim[8];
 signal input claimIssuanceMtp[IssuerLevels];
@@ -539,7 +528,7 @@ signal input claimIssuanceRootsTreeRoot;
 signal input claimIssuanceIdenState;
 signal input issuerID;
 </code></pre>
-<p>Verify claim revocation status:</p>
+<p><strong><em>Verify Claim Revocation Statuses</em></strong>:</p>
 <pre><code>signal input claimNonRevMtp[IssuerLevels];
 signal input claimNonRevMtpNoAux;
 signal input claimNonRevMtpAuxHi;
@@ -549,12 +538,12 @@ signal input claimNonRevIssuerRevTreeRoot;
 signal input claimNonRevIssuerRootsTreeRoot;
 signal input claimNonRevIssuerState;
 </code></pre>
-<p>Query request:</p>
+<p><strong><em>Query Requests</em></strong>:</p>
 <pre><code>signal input slotIndex; // index of field slot in the claim
 signal input value[valueArraySize]; // value for check
 signal input operator; // &gt;,&lt;, =,in, notin operations of CQL
 </code></pre>
-<p><strong>Public inputs:</strong></p>
+<p><strong><em>Public Inputs</em></strong>:</p>
 <pre><code class="language-json">challenge,
 id,
 hoIdenState,
@@ -567,11 +556,11 @@ value,
 timestamp
 
 </code></pre>
-<h2 id="proof-request-workflow">Proof request workflow</h2>
-<p><strong>Verifier → User</strong></p>
+<h2 id="proof-request-workflow">Proof Request Workflow</h2>
+<p><strong>Verifier (User)</strong></p>
 <ol>
-<li>Verifier prepare proof request with a query to atomic circuit</li>
-<li>Request</li>
+<li>The verifier prepares a proof by requesting a query to the atomic circuit.
+<em>Request</em>:</li>
 </ol>
 <pre><code class="language-json">{
   "circuit_id": "attrQuery",
@@ -600,29 +589,29 @@ timestamp
 }
 </code></pre>
 <ol>
-<li>User parse a proof request and do necessary checks</li>
-<li>The circuit is known</li>
-<li>The schema is known</li>
-<li>Claims by the specified issuer persist in the wallet</li>
-<li>Get issuer public state for key non-revocation proof</li>
-<li>Prepare inputs for the circuit<ol>
-<li>Prepare ownership / claim / issuer / query inputs</li>
-<li>Use schema to resolve field position in the claim</li>
+<li>The user parses a proof request and performs the necessary checks:</li>
+<li>The circuit is known.</li>
+<li>The schema is known.</li>
+<li>Claims by the specified issuer persist in the wallet.</li>
+<li>Get the issuer public state for key non-revocation proof.</li>
+<li>Prepare inputs for the circuit:<ol>
+<li>Prepare ownership / claim / issuer / query inputs.</li>
+<li>Use schema to resolve field position in the claim.</li>
 </ol>
 </li>
-<li>Generate ZK proof</li>
-<li>Create proof sharing response protocol message and send it to the verifier</li>
-<li>Flow diagram</li>
+<li>Generate ZK proof.</li>
+<li>Create proof-sharing response protocol message and send it to the verifier.</li>
 </ol>
-<p><img alt="verifier-user-query.png" src="../../imgs/verifier-user-query.png"/></p>
-<h2 id="next-steps">Next steps</h2>
+<p><strong>Flow Diagram</strong>:</p>
+<p><img alt="verifier-user-query.png" src="https://github.com/iden3/docs/blob/master/mkdocs/docs/imgs/verifier-user-query.png"/></p>
+<h2 id="next-steps">Next Steps</h2>
 <ol>
-<li>Make it possible to query multiple fields from the same schema, but still limits to only 4 available slots, 2 indexes, and 2 values. With this combination, we can cover the more advanced use case</li>
-<li>Support more query operations</li>
-<li>Fields combinations</li>
-<li>Claim combinations</li>
-<li>Represents JSON-LD document as a tree and stores root as a claim. Extend verifications to this new schema. Do an atomic query verification</li>
-<li>Extended query schema with multifield verifications, from JSON-LD</li>
+<li>Make it possible to query multiple fields from the same schema, still, it is limited to four available slots, two indexes, and two values. With this combination, we can cover the more advanced use cases.</li>
+<li>Support more query operations.</li>
+<li>Fields combinations.</li>
+<li>Claim combinations.</li>
+<li>Represent JSON-LD document as a tree and store root as a claim. Extend verifications to this new schema. Do an atomic query verification.</li>
+<li>Extended query schema with multifield verifications from JSON-LD.</li>
 </ol>
 </article>
 </div>

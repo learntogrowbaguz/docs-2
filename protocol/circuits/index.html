@@ -271,14 +271,14 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#template-docs-example">
-    Template docs example
+    Template Docs Example
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#basic-templates">
-    Basic templates
+    Basic Templates
   </a>
-<nav aria-label="Basic templates" class="md-nav">
+<nav aria-label="Basic Templates" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#checkclaimexists">
@@ -302,7 +302,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#query">
-    query
+    Query
   </a>
 </li>
 </ul>
@@ -310,9 +310,9 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#functional-templates">
-    Functional templates
+    Functional Templates
   </a>
-<nav aria-label="Functional templates" class="md-nav">
+<nav aria-label="Functional Templates" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#idownershipbysignature">
@@ -361,14 +361,14 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#template-docs-example">
-    Template docs example
+    Template Docs Example
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#basic-templates">
-    Basic templates
+    Basic Templates
   </a>
-<nav aria-label="Basic templates" class="md-nav">
+<nav aria-label="Basic Templates" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#checkclaimexists">
@@ -392,7 +392,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#query">
-    query
+    Query
   </a>
 </li>
 </ul>
@@ -400,9 +400,9 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#functional-templates">
-    Functional templates
+    Functional Templates
   </a>
-<nav aria-label="Functional templates" class="md-nav">
+<nav aria-label="Functional Templates" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#idownershipbysignature">
@@ -433,9 +433,8 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="circuits">Circuits</h1>
-<h2 id="template-docs-example">Template docs example</h2>
-<p>This is for understanding how the graphs in this docs describe templates and circuits.
-Just compare .circom code with its visual graph below.</p>
+<h2 id="template-docs-example">Template Docs Example</h2>
+<p>Let's understand how circuits and templates can be described by their graphs. Just compare the following .circom code with its visual graph displayed underneath.</p>
 <p>The code:</p>
 <pre><code>template Example () {
 signal input input1;
@@ -468,10 +467,10 @@ signal input input5;
     classDef circuitStyle fill:#b3ffd4,stroke-width:3px;  
     class Template1,Template2,Template3 circuitStyle;
 </div>
-<h2 id="basic-templates">Basic templates</h2>
-<p>These are templates which are not used independently to create circuits but rather as building blocks for other templates.</p>
+<h2 id="basic-templates">Basic Templates</h2>
+<p>Basic templates are not used independently to create circuits but are used as the building blocks for other templates.</p>
 <h3 id="checkclaimexists">checkClaimExists</h3>
-<p>The circuit checks that the claim exists in the sparse merkle tree. By "exists" we mean that a value Hv (hash of all values slots) is located by path Hi (hash of all index slots) in the tree.</p>
+<p>This circuit checks if a claim exists in the sparse Merkle tree. By "exists", we mean that a value Hv (hash of all values slots) is located by path Hi (hash of all index slots) in the tree.</p>
 <div class="mermaid">graph TB
     claim --&gt; getClaimHiHv
     getClaimHiHv -- key --&gt; SMTVerifier[SMTVerifier]
@@ -491,7 +490,7 @@ signal input input5;
     class getClaimHiHv,SMTVerifier circuitStyle;
 </div>
 <h3 id="checkclaimnonrev">checkClaimNonRev</h3>
-<p>The circuit checks that the claim does not exist in the sparse merkle tree. That means that the tree leaf is empty by a path, which is defined by the claim nonce.</p>
+<p>The circuit checks that the claim does not exist in the sparse Merkle tree. That means that the tree leaf is empty by a path, which is defined by the claim nonce.</p>
 <div class="mermaid">graph TB
     claim --&gt; getNonce
     getNonce -- key --&gt; SMTVerifier[SMTVerifier]
@@ -511,7 +510,7 @@ signal input input5;
     class getNonce,SMTVerifier circuitStyle;
 </div>
 <h3 id="checkchallengesignature">checkChallengeSignature</h3>
-<p>The circuit checks that the challenge signature is correct. The public key for verification is extracted from the claim.</p>
+<p>This circuit checks if the challenge signature is correct. The public key for verification is extracted from the claim.</p>
 <div class="mermaid">graph TB
     claim --&gt; getPubKeyFromClaim
     getPubKeyFromClaim -- Ax --&gt; EdDSAPoseidonVerifier
@@ -528,7 +527,7 @@ signal input input5;
     class getPubKeyFromClaim,EdDSAPoseidonVerifier circuitStyle
 </div>
 <h3 id="verifyidenstatematchesroot">verifyIdenStateMatchesRoot</h3>
-<p>The circuit calculate identity state from three merkle tree roots and checks if it is equal to expected state.</p>
+<p>The circuit calculates the identity state from the three Merkle tree roots and checks if it is equal to the expected state.</p>
 <div class="mermaid">graph TB
     claimsTreeRoot --&gt; calcRoot
     revTreeRoot --&gt; calcRoot
@@ -542,41 +541,40 @@ signal input input5;
     classDef circuitStyle fill:#b3ffd4,stroke-width:3px
     class calcRoot,equal circuitStyle
 </div>
-<h3 id="query">query</h3>
-<p>The circuit check that an expression with in, operator and value is true.</p>
+<h3 id="query">Query</h3>
+<p>This circuit checks that an expression within an operator and its value are true.</p>
 <p>For example in="1", operator="4", value=["5","2","3"] is true because "4" is "not in" operator and "1" is not in the ["5","2","3"] array.</p>
-<p>See all the operators in the circuit comments.</p>
-<p>The circuit graph is not represented due to complexity.</p>
-<h2 id="functional-templates">Functional templates</h2>
-<p>These are the templates which Iden3 system mostly uses directly to generate and verify proofs. A functional template may use basic of other functional templates as building blocks.</p>
+<p>See all the operators in the circuit comments. The circuit graph is not represented here due to complexity.</p>
+<h2 id="functional-templates">Functional Templates</h2>
+<p>These are the templates that the Iden3 system mostly uses to generate and verify proofs directly. A functional template may use other functional templates as its building blocks.</p>
 <h3 id="idownershipbysignature">idOwnershipBySignature</h3>
-<p>The circuits check ownership of specific identity as follows:</p>
-<ul>
-<li>The claim with public key should exist in claims tree</li>
-<li>The claim with public key should not be revoked</li>
-<li>The signature of a challenge should be valid</li>
-<li>The state should equal to expected from blockchain</li>
-</ul>
-<p>The above enable verifier to check that some challenge is signed by identity which state is timestamped in blockchain and includes non revoked claim with relevant public key.</p>
+<p>This circuit checks the ownership of a specific identity in the following way:</p>
+<ol>
+<li>The claim with the public key should exist in the claims tree.</li>
+<li>The claim with the public key should not be revoked.</li>
+<li>The signature of a challenge should be valid.</li>
+<li>The state should be equal to "expected" from the blockchain.</li>
+</ol>
+<p>The above criteria enable a verifier to check that the challenge is signed by an identity, which state is timestamped on the blockchain and if it includes the non-revoked claim with the relevant public key.</p>
 <h3 id="credentialatomicquerymtp">CredentialAtomicQueryMTP</h3>
-<p>The circuits check that an issuer have issued claim for identity and validates ownership of that identity as follows:</p>
-<ul>
-<li>Check identity ownership by idOwnershipBySignature template</li>
-<li>Verify claim subject, schema and expiration time</li>
-<li>Check issuer claim exists in issuer claims tree</li>
-<li>Check issuer claim is not revoked by an issuer</li>
-<li>Check the issuer claim satisfies a query</li>
-</ul>
+<p>This circuit checks that an issuer has issued a claim for identity and validates the ownership of that identity in the following manner:</p>
+<ol>
+<li>Checks the identity ownership by idOwnershipBySignature template</li>
+<li>Verifies the claim subject, the schema and the expiration time.</li>
+<li>Checks if the issuer claim exists in the issuer claims tree.</li>
+<li>Checks if the issuer claim is not revoked by an issuer.</li>
+<li>Checks if the issuer claim satisfies a query.</li>
+</ol>
 <h3 id="credentialatomicquerysig">CredentialAtomicQuerySig</h3>
-<p>The circuits check that an issuer have issued claim for identity and validates ownership of that identity as follows:</p>
-<ul>
-<li>Check identity ownership by idOwnershipBySignature template</li>
-<li>Verify claim subject, schema and expiration time</li>
-<li>Check issuer claim exists in issuer claims tree</li>
-<li>Verify claim signature by issuer</li>
-<li>Verify issuer state matches that one from blockchain as public input</li>
-<li>Check the issuer claim satisfies a query</li>
-</ul>
+<p>This circuit checks that an issuer has issued a claim for identity and validates ownership of that identity in the following manner:</p>
+<ol>
+<li>Checks the identity ownership by idOwnershipBySignature template.</li>
+<li>Verifies the claim subject, the schema and the expiration time</li>
+<li>Checks if the issuer claim exists in the issuer claims tree.</li>
+<li>Verifies the claim signature by the issuer.</li>
+<li>Verifies if the issuer state matches with the one from the blockchain as the public input.</li>
+<li>Checks if the issuer claim satisfies a query.</li>
+</ol>
 </article>
 </div>
 </div>

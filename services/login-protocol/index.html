@@ -8,7 +8,7 @@
 <link href="https://docs.iden3.io/services/login-protocol/" rel="canonical"/>
 <link href="../../favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.3.2" name="generator"/>
-<title>Login protocol - Iden3 Documentation</title>
+<title>Login Protocol - Iden3 Documentation</title>
 <link href="../../assets/stylesheets/main.24c991ad.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#000000" name="theme-color"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Login protocol
+              Login Protocol
             
           </span>
 </div>
@@ -284,45 +284,45 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#login-protocol_1">
-    Login protocol
+<a class="md-nav__link" href="#introduction">
+    Introduction
   </a>
-<nav aria-label="Login protocol" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#assumptions">
     Assumptions
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-needed">
-    What is needed
+<a class="md-nav__link" href="#what-is-required">
+    What is Required?
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#protocol-flow">
-    Protocol flow
+    Protocol Flow
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#signature-protocol-v01-spec">
-    Signature Protocol v0.1 spec
+<a class="md-nav__link" href="#signature-protocol-v01-specifications">
+    Signature Protocol v0.1: Specifications
   </a>
-<nav aria-label="Signature Protocol v0.1 spec" class="md-nav">
+<nav aria-label="Signature Protocol v0.1: Specifications" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#auxiliary-data-structures">
-    Auxiliary data structures
+    Auxiliary Data Structures
   </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#identity-assertion-v01-spec">
-    Identity Assertion v0.1 spec
+<a class="md-nav__link" href="#identity-assertion-v01-specifications">
+    Identity Assertion v0.1: Specifications
   </a>
-</li>
+<nav aria-label="Identity Assertion v0.1: Specifications" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#algorithms">
     Algorithms
@@ -331,17 +331,21 @@
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#signature-verification-algorithm">
-    Signature verification algorithm
+    Signature Verification Algorithm
   </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#iden-assert-verification-algorithm">
-    Iden Assert verification algorithm
+    Iden Assert Verification Algorithm
   </a>
-</li>
+<nav aria-label="Iden Assert Verification Algorithm" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#proofofclaim-verification">
-    ProofOfClaim verification
+<a class="md-nav__link" href="#proof-of-claim-verification">
+    Proof of Claim Verification
   </a>
 </li>
 </ul>
@@ -352,9 +356,9 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#iden3js-protocols">
-    iden3js - protocols
+    iden3js Protocols
   </a>
-<nav aria-label="iden3js - protocols" class="md-nav">
+<nav aria-label="iden3js Protocols" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#login-identity-assertion">
@@ -364,12 +368,12 @@
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#define-new-noncedb">
-    Define new NonceDB
+    Define New NonceDB
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#generate-new-request-of-identity-assert">
-    Generate New Request of Identity Assert
+<a class="md-nav__link" href="#generate-new-request-for-identity-assert">
+    Generate New Request for Identity Assert
   </a>
 </li>
 <li class="md-nav__item">
@@ -396,13 +400,13 @@
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#signature-format">
-    Signature format
+    Signature Format
   </a>
-<nav aria-label="Signature format" class="md-nav">
+<nav aria-label="Signature Format" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#json-signing-formats">
-    JSON Signing formats
+    JSON Signing Formats
   </a>
 </li>
 </ul>
@@ -423,16 +427,15 @@
 <a class="md-nav__link" href="#webauth-api">
     WebAuth API
   </a>
-<nav aria-label="WebAuth API" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#fido-security-guarantees-and-how-they-are-achieved">
-    FIDO Security guarantees and how they are achieved:
+    FIDO Security Guarantees and How They are Achieved:
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#fido-threat-analysis-and-mitigations">
-    FIDO Threat analysis and mitigations:
+    FIDO Threat Analysis and Mitigations:
   </a>
 </li>
 <li class="md-nav__item">
@@ -442,11 +445,8 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#example-code-of-server-verification">
-    Example code of server verification:
+    Example Code of Server Verification:
   </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -459,9 +459,9 @@
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#the-fido-protocols-security-goals">
-    The FIDO protocols security goals:
+    The FIDO Protocols: Security Goals
   </a>
-<nav aria-label="The FIDO protocols security goals:" class="md-nav">
+<nav aria-label="The FIDO Protocols: Security Goals" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sg-1">
@@ -483,6 +483,9 @@
     [SG-4]
   </a>
 </li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sg-5">
     [SG-5]
@@ -502,7 +505,8 @@
 <a class="md-nav__link" href="#sg-8">
     [SG-8]
   </a>
-</li>
+<nav aria-label="[SG-8]" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sg-9">
     [SG-9]
@@ -563,37 +567,28 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="login-protocol">Login Protocol</h1>
-<h2 id="login-protocol_1">Login protocol</h2>
-<p>The login protocol is based on the signature protocol, in which a user
-signs a packet using an authorized kSign key.</p>
-<p>For the login case, the user desires to assert a particular identity (an
-ethereum address in this case) to a server so that they are allowed
-access into the service while being identified.</p>
-<p><img alt="image0" src="../images/login_overview.png"/></p>
-<h3 id="assumptions">Assumptions</h3>
+<h2 id="introduction">Introduction</h2>
+<p>The login protocol is based on the signature protocol, in which a user signs a packet using an authorized kSign key. For the login case, the user desires to assert a particular identity (an
+Ethereum address in this case) to a server so that s/he is allowed access to the service while being identified.</p>
+<p><img alt="Login Overview" src="https://github.com/iden3/docs/blob/master/mkdocs/docs/services/images/login_overview.png"/></p>
+<h2 id="assumptions">Assumptions</h2>
 <ul>
-<li>Secure connection between Wallet and Server.</li>
-<li>Secure connection between Web Client and Server.</li>
-<li>Wallet authenticates the Server in the connection.</li>
-<li>Web Client authenticates the Server in the connection.</li>
+<li>Secure connection between wallet and server.</li>
+<li>Secure connection between web client and server.</li>
+<li>Wallet authenticates the server in the connection.</li>
+<li>Web client authenticates the server in the connection.</li>
 </ul>
-<h3 id="what-is-needed">What is needed</h3>
+<h2 id="what-is-required">What is Required?</h2>
 <ul>
-<li>Server authenticates the Ethereum Address and Ethereum Name from the
-    Wallet.</li>
-<li>The user transfers the authentication from the Wallet to the Web
-    Client.</li>
+<li>Server authenticates the Ethereum address and Ethereum name from the wallet.</li>
+<li>The user transfers the authentication from the wallet to the web client.</li>
 </ul>
-<h3 id="protocol-flow">Protocol flow</h3>
-<p><img alt="image1" src="../images/login_flow.png"/></p>
+<h2 id="protocol-flow">Protocol Flow</h2>
+<p><img alt="Login Flow" src="https://github.com/iden3/docs/blob/master/mkdocs/docs/services/images/login_flow.png"/></p>
 <p>Challenges contain a cryptographic nonce and have a timeout that
-indicates the validity of the nonce in the challenge. A signed challenge
-with a timed out nonce must be rejected by the server. The server must
-store a list of not timed out nonces that haven’t been signed yet to
-guarantee freshness.</p>
-<p>A cryptographic nonce must be securely generated and long enough to
-avoid colisions (we use 256 bits).</p>
-<h3 id="signature-protocol-v01-spec">Signature Protocol v0.1 spec</h3>
+indicates the validity of the nonce in the challenge. A signed challenge with a timed out nonce must be rejected by the server. The server must store a list of the nonces that have not timed out and have not been signed yet to guarantee the freshness.</p>
+<p>A cryptographic nonce must be generated securely and must be long enough to avoid collisions (we use 256 bits).</p>
+<h2 id="signature-protocol-v01-specifications">Signature Protocol v0.1: Specifications</h2>
 <p>A signature may be requested as follows:</p>
 <pre><code>{
   header: {
@@ -605,15 +600,8 @@ avoid colisions (we use 256 bits).</p>
   }
 }
 </code></pre>
-<p>The user will generate a packet following the signature protocol
-specification, that may contain data from a signature request, or may be
-made from scratch. The packet contains a header and a payload, and is
-serialized and signed following the <a href="https://tools.ietf.org/html/rfc7515">JWS
-standard</a>. Usually the <code>form</code> will
-be filled by the user, and <code>data</code> will be copied from a request.</p>
-<p>The structure of the <code>data</code> and <code>form</code> in the payload are specified by
-the <code>type</code> (what is being signed) in the payload. The rest of the
-elements are specified by the <code>typ</code> (signature packet) in the header.</p>
+<p>Depending upon the signature protocol specifications, a user generates a packet that may contain data from the signature request or can be created from scratch. The packet contains a header and a payload, is serialized, and signed following the <a href="https://tools.ietf.org/html/rfc7515">JWS standard</a>. Usually, the <code>form</code> is filled in by the user, and <code>data</code> is copied from a request.</p>
+<p>The structures of the <code>data</code> and the <code>form</code> in the payload are specified by the <code>type</code> (what is being signed) in the payload. The rest of the elements are specified by the <code>typ</code> (signature packet) in the header.</p>
 <pre><code>JWS_PAYLOAD = {
   type: TYPE
   data: DATA
@@ -632,18 +620,10 @@ JWS_HEADER = {
 
 JWS_SIGN(JWS_HEADER, JWS_PAYLOAD)
 </code></pre>
-<p>Each Signature request <code>type</code> has a view representation for the user,
-where the <code>data</code> and <code>form</code> are presented. Some of the values may be
-hidden from the user when necessary, but only if doing so doesn’t
-compromise the security of the user. In the request view, the user has
-the ability to pick some elements of the <code>form</code>.</p>
-<p><code>ksign</code> is the compressed public key of a secp256k ECDSA key pair. The
-<code>proofKSing</code> contains a KSign Authorize Claim for a secp256k public key.</p>
-<p>As <code>JWS_HEADER.alg</code> we will use a custom algorithm (not defined in the
-JWS standard): “EK256K1”, which is ECDSA with secp256k1 curve and keccak
-as hash function, the same signature algorithm configuration used in
-Ethereum.</p>
-<h4 id="auxiliary-data-structures">Auxiliary data structures</h4>
+<p>Each signature request <code>type</code> has a view representation for the user, where the <code>data</code> and <code>form</code> are presented. Some of the values may be hidden from the user when necessary, but only if doing so doesn’t compromise the security of the user. In the request view, the user has the ability to pick some elements of the <code>form</code>.
+<code>ksign</code> is the compressed public key of a secp256k ECDSA key pair. The <code>proofKSing</code> contains a KSign Authorize Claim for a secp256k public key.</p>
+<p>As <code>JWS_HEADER.alg</code>, we will use a custom algorithm (not defined in the JWS standard): “EK256K1”, which is ECDSA with secp256k1 curve and keccak as a hash function, the same signature algorithm configuration as is used in Ethereum.</p>
+<h3 id="auxiliary-data-structures">Auxiliary Data Structures</h3>
 <pre><code>proofClaim: {
     signature: signature # Relay root + date signed by relay
     date: uint
@@ -658,9 +638,8 @@ proofClaimPartial: {
     aux: nil | { ver: uint, era: uint, idAddr: str } # Necessary data to construct SetRootClaim from root
 }
 </code></pre>
-<p>Usually the relay returns the <code>proofClaim</code> data structure to prove that
-a claim is valid and is in the merkle tree.</p>
-<h3 id="identity-assertion-v01-spec">Identity Assertion v0.1 spec</h3>
+<p>Usually, the relay returns the <code>proofClaim</code> data structure to prove that a claim is valid and is in the Merkle tree.</p>
+<h2 id="identity-assertion-v01-specifications">Identity Assertion v0.1: Specifications</h2>
 <p>payload:</p>
 <pre><code>type: iden3.iden_assert.v0_1
 data: {
@@ -673,9 +652,7 @@ form: {
   proofAssignName: proofClaim # proof of claim Assign Name for ethName
 }
 </code></pre>
-<p>A session id, if necessary, can be computed from the challenge. This
-session id can be used to link the communication between the web service
-and the wallet service.</p>
+<p>A session id, if required, can be computed from the challenge. This session id can be used to link the communication between the web service and the wallet service.</p>
 <p>view:</p>
 <pre><code>type: Identity Assertion
 data: {
@@ -686,12 +663,8 @@ form: {
 }
 </code></pre>
 <h3 id="algorithms">Algorithms</h3>
-<p>Here we show an overview of the algorithms steps used for verification
-of the proofs and signatures used in the login protocol. The following
-algorithms consider the case in which there is a only a single trusted
-entity (identified by <code>relayPk</code>) that acts as a relay and as a domain
-name server.</p>
-<h4 id="signature-verification-algorithm">Signature verification algorithm</h4>
+<p>In the following sections, we will show an overview of the steps of the algorithms used for verification of the proofs and signatures used in the login protocol. The algorithms below consider the case in which there is a single trusted entity (identified by <code>relayPk</code>) that acts as a relay and as a domain name server.</p>
+<h4 id="signature-verification-algorithm">Signature Verification Algorithm</h4>
 <pre><code>VerifySignedPacket(jwsHeader, jwsPayload, signature, relayPk):
 1. Verify jwsHeader.typ is 'iden3.sig.v0_1'
 2. Verify jwsHeader.alg is 'EK256K1'
@@ -701,9 +674,8 @@ name server.</p>
 6. Verify that signature of JWS(jwsHeader, jwsPayload) by jwsPayload.ksign is signature
 7. VerifyProofOfClaim(jwsPayload.proofKSign, relayPk)
 </code></pre>
-<p>In 4. we verify that the ksign used to sign the packet is authorized by
-the user, identified by jwsHeader.iss ethereum address.</p>
-<h4 id="iden-assert-verification-algorithm">Iden Assert verification algorithm</h4>
+<p>In step 4 above, we verify that the ksign used to sign the packet is authorized by the user and is identified by the jwsHeader.iss Ethereum address.</p>
+<h3 id="iden-assert-verification-algorithm">Iden Assert Verification Algorithm</h3>
 <pre><code>VerifyIdenAssertV01(nonceDB, origin, jwsHeader, jwsPayload, signature, relayPk):
 1. Verify jwsPayload.type is 'iden3.iden_assert.v0_1'
 2. Verify jwsPayload.data.origin is origin
@@ -711,7 +683,7 @@ the user, identified by jwsHeader.iss ethereum address.</p>
 4. Verify that jwsHeader.iss and jwsPayload.form.ethName are in jwsPayload.proofAssignName.leaf
 5. VerifyProofOfClaim(jwsPayload.form.ethName, relayPk)
 </code></pre>
-<h4 id="proofofclaim-verification">ProofOfClaim verification</h4>
+<h4 id="proof-of-claim-verification">Proof of Claim Verification</h4>
 <pre><code>VerifyProofOfClaim(p, relayPk):
 1. Verify signature of p.proofs[-1].root by relayPk is p.signature
    let leaf = p.leaf
@@ -726,7 +698,7 @@ the user, identified by jwsHeader.iss ethereum address.</p>
 
 See [this document](login_spec_rationale.md) for the rationale of some
 decisions made in the design of this protocol. -->
-<h2 id="iden3js-protocols">iden3js - protocols</h2>
+<h2 id="iden3js-protocols">iden3js Protocols</h2>
 <h3 id="login-identity-assertion">Login (Identity Assertion)</h3>
 <pre><code>Wallet                                   Service
   +                                         +
@@ -754,21 +726,20 @@ decisions made in the design of this protocol. -->
   |                                         |
   +                                         +
 </code></pre>
-<p>Read the login protocol specification <a href="login_spec.md">here</a>.</p>
-<h4 id="define-new-noncedb">Define new NonceDB</h4>
+<p>Read the login protocol specifications <a href="https://docs.iden3.io/protocol/zklogin/">here:</a></p>
+<h4 id="define-new-noncedb">Define New NonceDB</h4>
 <pre class="js"><code class="language-sourceCode">const nonceDB = new iden3.protocols.NonceDB();
 </code></pre>
-<h4 id="generate-new-request-of-identity-assert">Generate New Request of Identity Assert</h4>
+<h4 id="generate-new-request-for-identity-assert">Generate New Request for Identity Assert</h4>
 <ul>
-<li>input<ul>
+<li>Input<ul>
 <li><code>nonceDB</code>: NonceDB class object</li>
-<li><code>origin</code>: domain of the emitter of the request</li>
-<li><code>timeout</code>: unixtime format, valid until that date. We can use
-    for example 2 minutes (<code>2*60</code> seconds)</li>
+<li><code>origin</code>: Domain of the emitter of the request</li>
+<li><code>timeout</code>: Unix time format, valid until that date. For example, we can use 2 minutes (<code>2*60</code> seconds)</li>
 </ul>
 </li>
 <li>
-<p>output</p>
+<p>Output</p>
 <ul>
 <li><code>signatureRequest</code>: <code>Object</code></li>
 </ul>
@@ -776,27 +747,26 @@ decisions made in the design of this protocol. -->
 const signatureRequest = iden3.protocols.login.newRequestIdenAssert(nonceDB, origin, 2*60);</code></p>
 </li>
 </ul>
-<p>The <code>nonce</code> of the <code>signatureRequest</code> can be getted from:</p>
+<p>The <code>nonce</code> of the <code>signatureRequest</code> can be accessed as:</p>
 <pre class="js"><code class="language-sourceCode">const nonce = signatureRequest.body.data.challenge;
 // nonce is the string containing the nonce value
 </code></pre>
 <p>We can add auxiliar data to the <code>nonce</code> in the <code>nonceDB</code> only one time:</p>
 <pre class="js"><code class="language-sourceCode">const added = nodeDB.addAuxToNonce(nonce, auxdata);
-// added is a bool confirming if the aux data had been added
+// added is a bool confirming if the aux data had been added.
 </code></pre>
 <h4 id="sign-packet">Sign Packet</h4>
 <ul>
 <li>input<ul>
 <li><code>signatureRequest</code>: object generated in the
     <code>newRequestIdenAssert</code> function</li>
-<li><code>userAddr</code>: Eth Address of the user that signs the data packet</li>
+<li><code>userAddr</code>: Ethereum address of the user who signs the data packet</li>
 <li><code>ethName</code>: name assigned to the <code>userAddr</code></li>
 <li><code>proofOfEthName</code>: <code>proofOfClaim</code> of the <code>ethName</code></li>
 <li><code>kc</code>: iden3.KeyContainer object</li>
 <li><code>ksign</code>: KOperational authorized for the <code>userAddr</code></li>
 <li><code>proofOfKSign</code>: <code>proofOfClaim</code> of the <code>ksign</code></li>
-<li><code>expirationTime</code>: unixtime format, signature will be valid until
-    that date</li>
+<li><code>expirationTime</code>: Unix time format, signature will be valid until that date</li>
 </ul>
 </li>
 <li>
@@ -813,17 +783,14 @@ const signedPacket = iden3.protocols.login.signIdenAssertV01(signatureRequest, u
 <ul>
 <li>input<ul>
 <li><code>nonceDB</code>: NonceDB class object</li>
-<li><code>origin</code>: domain of the emitter of the request</li>
-<li><code>signedPacket</code>: object generated in the <code>signIdenAssertV01</code>
-    function</li>
+<li><code>origin</code>: Domain of the emitter of the request</li>
+<li><code>signedPacket</code>: Object generated in the <code>signIdenAssertV01</code> function</li>
 </ul>
 </li>
 <li>
 <p>output</p>
 <ul>
-<li><code>nonce</code>: nonce object of the signedPacket, that has been just
-    deleted from the nonceDB when the signedPacket is verified. If
-    the verification fails, the nonce will be <code>undefined</code></li>
+<li><code>nonce</code>: Nonce object of the signedPacket that has been deleted from the nonceDB when the signedPacket is verified. If the verification fails, the nonce will be <code>undefined.</code></li>
 </ul>
 <p><code>{.sourceCode .js}
 const verified = iden3.protocols.login.verifySignedPacket(nonceDB, origin, signedPacket);</code></p>
@@ -831,14 +798,12 @@ const verified = iden3.protocols.login.verifySignedPacket(nonceDB, origin, signe
 </ul>
 <!-- #### Appendix
 
-See the [login specification document](login_spec.md) for information
-about the protocol design. -->
+See the [login specification document](login_spec.md) for information about the protocol design. -->
 <h2 id="rationale">Rationale</h2>
-<p>The following document contains references to similar protocols on which
-our login protocol relies on or takes inspiration from.</p>
-<h3 id="signature-format">Signature format</h3>
+<p>In the following sections, you will find references to a few protocols on which our login protocol relies or takes inspiration from.</p>
+<h3 id="signature-format">Signature Format</h3>
 <p>Use JSON to encode the object that will be signed.</p>
-<h4 id="json-signing-formats">JSON Signing formats</h4>
+<h4 id="json-signing-formats">JSON Signing Formats</h4>
 <p><a href="https://medium.facilelogin.com/json-message-signing-alternatives-897f90d411c">https://medium.facilelogin.com/json-message-signing-alternatives-897f90d411c</a></p>
 <ul>
 <li>JSON Web Signature (JWS)<ul>
@@ -853,13 +818,12 @@ our login protocol relies on or takes inspiration from.</p>
 <p><a href="https://matrix.org/docs/spec/appendices.html#signing-json">https://matrix.org/docs/spec/appendices.html#signing-json</a></p>
 <ul>
 <li>Matrix JSON Signing<ul>
-<li>Allows having multiple signatures with different protocols for a
-    single JSON</li>
+<li>Allows having multiple signatures with different protocols for a single JSON</li>
 </ul>
 </li>
 </ul>
 <h3 id="possible-attacks">Possible attacks</h3>
-<p>See WebAuth API, FIDO Threat analysis</p>
+<p>See WebAuth API, FIDO Threat Analysis</p>
 <h3 id="references">References</h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/OpenID">https://en.wikipedia.org/wiki/OpenID</a></li>
@@ -872,91 +836,60 @@ our login protocol relies on or takes inspiration from.</p>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API">https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API</a></li>
 <li><a href="https://w3c.github.io/webauthn/">https://w3c.github.io/webauthn/</a></li>
 <li><a href="https://www.w3.org/TR/webauthn/">https://www.w3.org/TR/webauthn/</a></li>
+<li><a href="https://www.webauthn.io/">https://www.webauthn.io/</a> (Demo)</li>
 </ul>
-<p>Demo: <a href="https://www.webauthn.io/">https://www.webauthn.io/</a></p>
-<h5 id="fido-security-guarantees-and-how-they-are-achieved">FIDO Security guarantees and how they are achieved:</h5>
+<h4 id="fido-security-guarantees-and-how-they-are-achieved">FIDO Security Guarantees and How They are Achieved:</h4>
 <ul>
 <li><a href="https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-security-ref-v2.0-id-20180227.html#relation-between-measures-and-goals">https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-security-ref-v2.0-id-20180227.html#relation-between-measures-and-goals</a></li>
 </ul>
-<h5 id="fido-threat-analysis-and-mitigations">FIDO Threat analysis and mitigations:</h5>
+<h4 id="fido-threat-analysis-and-mitigations">FIDO Threat Analysis and Mitigations:</h4>
 <ul>
-<li><a href="https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-security-ref-v2.0-id-20180227.html#threat-analysis">https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-security-ref-v2.0-id-20180227.html#threat-analysis</a>
-Currently (2018-01-08) there’s no support for iOS (Safari):</li>
+<li><a href="https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-security-ref-v2.0-id-20180227.html#threat-analysis">https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-security-ref-v2.0-id-20180227.html#threat-analysis</a> Currently (2018-01-08) there’s no support for iOS (Safari):</li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API#Browser_compatibility">https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API#Browser_compatibility</a></li>
 </ul>
-<h5 id="criticism">Criticism:</h5>
+<h4 id="criticism">Criticism:</h4>
 <ul>
 <li><a href="https://www.scip.ch/en/?labs.20180424">https://www.scip.ch/en/?labs.20180424</a></li>
 </ul>
-<h5 id="example-code-of-server-verification">Example code of server verification:</h5>
+<h4 id="example-code-of-server-verification">Example Code of Server Verification:</h4>
 <ul>
 <li><a href="https://github.com/duo-labs/webauthn/blob/fa6cd954884baf24fc5a51656ce21c1a1ef574bc/main.go#L336">https://github.com/duo-labs/webauthn/blob/fa6cd954884baf24fc5a51656ce21c1a1ef574bc/main.go#L336</a></li>
 <li><a href="https://w3c.github.io/webauthn/#verifying-assertion">https://w3c.github.io/webauthn/#verifying-assertion</a></li>
 </ul>
 <h3 id="appendix">Appendix</h3>
-<h4 id="the-fido-protocols-security-goals">The FIDO protocols security goals:</h4>
+<h4 id="the-fido-protocols-security-goals">The FIDO Protocols: Security Goals</h4>
 <h5 id="sg-1">[SG-1]</h5>
-<p>Strong User Authentication: Authenticate (i.e. recognize) a user and/or
-a device to a relying party with high (cryptographic) strength. </p>
+<p><strong>Strong User Authentication</strong>: Authenticate (recognize) a user and/or a device to a relying party with high (cryptographic) strength. </p>
 <h5 id="sg-2">[SG-2]</h5>
-<p>Credential Guessing Resilience: Provide robust protection against eavesdroppers, e.g. be resilient to physical observation, resilient to
-targeted impersonation, resilient to throttled and unthrottled guessing.</p>
+<p><strong>Credential Guessing Resilience</strong>: Provide robust protection against eavesdroppers, e.g. be resilient to physical observation, resilient to targeted impersonation, and resilient to throttled and unthrottled guessing.</p>
 <h5 id="sg-3">[SG-3]</h5>
-<p>Credential Disclosure Resilience: Be resilient to phishing attacks and real-time phishing attack, including resilience to
-online attacks by adversaries able to actively manipulate network
-traffic. </p>
+<p><strong>Credential Disclosure Resilience</strong>: Be resilient to phishing attacks and real-time phishing attacks including resilience to online attacks by adversaries that are able to actively manipulate network traffic. </p>
 <h5 id="sg-4">[SG-4]</h5>
-<p>Unlinkablity: Protect the protocol conversation such that any two relying parties cannot link the conversation to one
-user (i.e. be unlinkable). </p>
-<h5 id="sg-5">[SG-5]</h5>
-<p>Verifier Leak Resilience: Be resilient to leaks from other relying parties. I.e., nothing that a
-verifier could possibly leak can help an attacker impersonate the user
-to another relying party. </p>
-<h5 id="sg-6">[SG-6]</h5>
-<p>Authenticator Leak Resilience: Be resilient to leaks from other FIDO Authenticators. I.e., nothing that
-a particular FIDO Authenticator could possibly leak can help an attacker
-to impersonate any other user to any relying party. </p>
-<h5 id="sg-7">[SG-7]</h5>
-<p>User Consent: Notify the user before a relationship to a new relying party is
-being established (requiring explicit consent). </p>
-<h5 id="sg-8">[SG-8]</h5>
-<p>Limited PII: Limit the amount of personal identifiable information (PII) exposed
-to the relying party to the absolute minimum. </p>
+<p><strong>Unlinkablity</strong>: Protect the protocol conversation such that any two relying parties cannot link the conversation to one user (i.e. be unlinkable). </p>
+<h4 id="sg-5">[SG-5]</h4>
+<p><strong>Verifier Leak Resilience</strong>: Be resilient to leaks from other relying parties,i.e. nothing that the verifier could possibly leak can help an attacker impersonate the user to a relying party. </p>
+<h4 id="sg-6">[SG-6]</h4>
+<p><strong>Authenticator Leak Resilience</strong>: Be resilient to leaks from other FIDO Authenticators i.e., nothing that a particular FIDO Authenticator could possibly leak can help an attacker impersonate any other user to a relying party. </p>
+<h4 id="sg-7">[SG-7]</h4>
+<p><strong>User Consent</strong>: Notify the user before a relationship with a new relying party is being established (requiring explicit consent). </p>
+<h4 id="sg-8">[SG-8]</h4>
+<p><strong>Limited PII</strong>: Limit to the absolute minimum the amount of the Personal Identifiable Information (PII) that can get exposed to the relying party.</p>
 <h5 id="sg-9">[SG-9]</h5>
-<p>Attestable Properties: Relying Party must be able to verify FIDO Authenticator
-model/type (in order to calculate the associated risk). </p>
+<p><strong>Attestable Properties</strong>: The relying party must be able to verify FIDO Authenticator model/type (in order to calculate the associated risk). </p>
 <h5 id="sg-10">[SG-10]</h5>
-<p>DoS Resistance: Be resilient to Denial of Service Attacks. I.e. prevent
-attackers from inserting invalid registration information for a
-legitimate user for the next login phase. Afterward, the legitimate user
-will not be able to login successfully anymore. </p>
+<p><strong>DoS Resistance</strong>: Be resilient to the Denial of Service attacks, i.e. prevent attackers from inserting invalid registration information for a legitimate user for the next login phase and therefore, the legitimate user will not be able to login successfully anymore. </p>
 <h5 id="sg-11">[SG-11]</h5>
-<p>Forgery Resistance: Be resilient to Forgery Attacks (Impersonation Attacks).
-I.e. prevent attackers from attempting to modify intercepted
-communications in order to masquerade as the legitimate user and login
-to the system. </p>
+<p><strong>Forgery Resistance</strong>: Be resilient to the forgery attacks (impersonation attacks), i.e. prevent attackers from attempting to modify intercepted communications in order to masquerade as the legitimate user and be able to log in to the system. </p>
 <h5 id="sg-12">[SG-12]</h5>
-<p>Parallel Session Resistance: Be resilient to Parallel Session Attacks. Without knowing a user’s
-authentication credential, an attacker can masquerade as the legitimate
-user by creating a valid authentication message out of some eavesdropped
-communication between the user and the server. </p>
+<p><strong>Parallel Session Resistance</strong>: Be resilient to the parallel session attacks. Without knowing a user’s authentication credential, an attacker can masquerade as a legitimate user. This can be done by creating a valid authentication message out of some eavesdropped communication between the user and the server. </p>
 <h5 id="sg-13">[SG-13]</h5>
-<p>Forwarding Resistance: Be resilient to Forwarding and Replay Attacks.
-Having intercepted previous communications, an attacker can impersonate
-the legal user to authenticate to the system. The attacker can replay or
-forward the intercepted messages. </p>
+<p><strong>Forwarding Resistance</strong>: Be resilient to the forwarding and replay attacks. Having intercepted previous communications, an attacker can impersonate the legal user to authenticate to the system. This attacker can replay or forward the intercepted messages. </p>
 <h5 id="sg-14">[SG-14]</h5>
-<p>(not covered by U2F) Transaction Non-Repudiation: Provide strong cryptographic
-non-repudiation for secure transactions. </p>
+<p><strong>Transaction Non-Repudiation</strong> <!--(not covered by U2F)-->: Provide strong cryptographic non-repudiation for secure transactions. </p>
 <h5 id="sg-15">[SG-15]</h5>
-<p>Respect for Operating Environment Security Boundaries: Ensure that registrations and
-private key material as a shared system resource is appropriately
-protected according to the operating environment privilege boundaries in
-place on the FIDO user device. </p>
+<p><strong>Respect for Operating Environment Security Boundaries</strong>: Ensure that the registrations and the private keys, as a shared system resource, are appropriately protected according to the operating environment privilege boundaries on the FIDO user device. </p>
 <h5 id="sg-16">[SG-16]</h5>
-<p>Assessable Level of Security: Ensure that the design and implementation of the Authenticator
-allows for the testing laboratory / FIDO Alliance to assess the level of
-security provided by the Authenticator.</p>
+<p><strong>Assessable Level of Security</strong>: Ensure that the design and implementation of the authenticator allow the testing laboratory/FIDO Alliance to assess the level of security provided by the authenticator.</p>
 </article>
 </div>
 </div>

@@ -2,97 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.iden3.io/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/basics/getting-started/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/basics/introduction/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/basics/key-concepts/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/basics/more-on-identity/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/circom-snarkjs/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/guides/centralized-login/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/guides/circom-and-snarkjs/</loc>
-         <lastmod>2022-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.iden3.io/guides/introduction/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/protocol/bjjkey/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/protocol/circuits/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/protocol/claims-structure/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/protocol/querylanguage/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/protocol/spec/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/protocol/zklogin/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/publications/publications/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/publications/pdfs/test/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/services/libraries/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.iden3.io/services/login-protocol/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
